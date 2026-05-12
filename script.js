@@ -1,3 +1,32 @@
+let energy = 0;
+const focusLines = [
+
+  "your focus is building something ✨",
+
+  "small effort repeated daily changes everything",
+
+  "discipline is carrying you where motivation can't",
+
+  "one focused session can change your future",
+
+  "your future self is watching this moment",
+
+  "consistency creates unfair advantages",
+
+  "lock in now. flex later.",
+
+  "every distraction delayed is self-respect gained"
+
+];
+function rotateFocusLines() {
+
+  const line = document.getElementById("meaningLine");
+
+  let randomText =
+    focusLines[Math.floor(Math.random() * focusLines.length)];
+
+  line.innerText = randomText;
+}
 function generatePlan() {
   let subjects = document.getElementById("subjects").value.split(/,|\n/);
   let examDate = new Date(document.getElementById("examDate").value);
@@ -26,6 +55,29 @@ function generatePlan() {
 
     li.onclick = () => {
       li.classList.toggle("done");
+
+if (li.classList.contains("done")) {
+
+    energy += 10;
+
+    if (energy > 100) {
+        energy = 100;
+    }
+
+} else {
+
+    energy -= 10;
+
+    if (energy < 0) {
+        energy = 0;
+    }
+}
+
+document.getElementById("energyBar").style.width =
+    energy + "%";
+
+document.getElementById("energyText").innerText =
+    "LOCK-IN ENERGY: " + energy + "%";
       saveData();
       showPopup();
     };
@@ -268,3 +320,4 @@ function createParticle() {
     particle.remove();
   }, 10000);
 }
+setInterval(rotateFocusLines, 5000);
