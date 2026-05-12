@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StudyFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main-card">
+
+  <h1>LOCK IN 🔥</h1>
+
+<input type="number" id="focusTime" placeholder="Enter focus time (minutes)">
+<select id="themeSelect">
+  <option value="candle">🕯️ Candle Glow</option>
+  <option value="universe">🌌 Universe Formation</option>
+  <option value="clarity">🌊 Noise to Clarity</option>
+  <option value="ecosystem">🌱 Ecosystem Mode</option>
+</select>
+
+<p id="meaningLine">
+  your focus is building something ✨
+</p>
+<button id="lockInBtn" onclick="startLockInMode()">
+  ENTER LOCK-IN MODE
+</button>
+
+<h2 id="timer">25:00</h2>
+
+  <div class="container">
+    <input type="text" id="subjects" placeholder="Enter subjects (comma separated)">
+    <input type="date" id="examDate">
+    <button onclick="generatePlan()">Generate Plan</button>
+  </div>
+<h3 id="progressText">Progress: 0%</h3>
+<h2 id="todayTask">Today's Task: None</h2>
+ <ul id="planList"></ul>
+<div id="popup"></div>
+<div id="starsContainer"></div>
+<div id="particlesContainer"></div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
